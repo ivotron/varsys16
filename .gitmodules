@@ -1,0 +1,15 @@
+[submodule "vendor/bibfile"]
+	path = vendor/bibfile
+	url = https://github.com/ivotron/bibfile
+[submodule "vendor/bibtools"]
+	path = vendor/bibtools
+	url = https://github.com/ivotron/bibtools
+[submodule "vendor/docker-pandoc"]
+	path = vendor/docker-pandoc
+	url = https://github.com/ivotron/docker-pandoc
+[submodule "vendor/latex-files"]
+	path = vendor/latex-files
+	url = https://github.com/ivotron/latex-files
+[submodule "vendor/pandoc-templates"]
+	path = vendor/pandoc-templates
+	url = https://github.com/ivotron/pandoc-templates
