@@ -12,9 +12,9 @@ author:
   - name: "Adam Moody and Kathryn Mohror"
     affiliation: "_Lawrence Livermore National Laboratory_"
     email: "`{moody20,kathryn}@llnl.gov`"
-  - name: "Remzi Arpaci-Dusseau and Andrea Arpaci-Dusseau"
-    affiliation: "_University of Wisconsin-Madison_"
-    email: "`{remzi,dusseau}@cs.wisc.edu`"
+#  - name: "Remzi Arpaci-Dusseau and Andrea Arpaci-Dusseau"
+#    affiliation: "_University of Wisconsin-Madison_"
+#    email: "`{remzi,dusseau}@cs.wisc.edu`"
 abstract: |
   Evaluating experimental results in the field of systems research is 
   a challenging task, mainly due to the many changes in software and 
@@ -126,8 +126,12 @@ relative (`shares`) or absolute (`period` and `quota`) values. Figure
 1 shows the effect that multiple values for `quota` have on the 
 execution of a CPU-bound process.
 
-![Effectiveness of cgroups for the crafty 
-benchmark.](figures/cgroups.png)
+![Boxplot of crafty runtimes for multiple values of cpu quota (with a 
+fixed period of 100 microseconds). This illustrates the effectiveness 
+of the CFS scheduler for limiting CPU access for a single-threaded 
+process executing the crafty benchmark. Every boxplot summarizes 10 
+executions. As the figure shows, the interquartile box overlaps with 
+the median.](figures/cgroups.png)
 
 ## Memory Bandwidth Throttling
 
@@ -142,8 +146,12 @@ way in which the CFS scheduler manages CPU usage. Figure 2 shows the
 effect of distinct memory bandwidth limitation values on a 
 memory-bound workload.
 
-![Effectiveness of `memguard` for the copy test of the STREAM memory 
-bandwidth benchmark.](figures/memguard.png)
+![Boxplot of bandwidth test results for the STREAM (copy) benchmark 
+for multiple values of cpu bandwidth limits. The figure shows the 
+effectiveness of `memguard` for limiting available memory bandwidth to 
+the single-threaded process executing the benchmark. Every point 
+summarizes 10 executions of the benchmark. The interquartile box 
+overlaps with the median.](figures/memguard.png)
 
 # Proposed Methodology
 
@@ -215,30 +223,8 @@ provide meaningful comparisons we have disabled compiler optimizations
 mentioned previously, these are single-threaded, running in an 
 uncontended system.
 
-## Applications and Hardware Setup
-
-We use the following applications:
-
-  * CoMD. A reference implementation of classical molecular dynamics 
-    algorithms and workloads as used in materials science.
-  * CloverLeaf. A hydrodynamics mini-app to solve the compressible 
-    Euler equations in 2D, using an explicit, second-order method.
-  * SILT [@lim_silt_2011]. A memory-efficient, high-performance 
-    key-value store system based on flash storage that scales to serve 
-    billions of key-value items on a single node.
-  * RedisBench. The redis-benchmark utility that simulates running 
-    commands done by N clients at the same time sending M total 
-    queries.
-
-All applications were executed on the base and target systems. The 
-characteristics of every platform are described in Table 1[^paperepo]. 
-Every application runs as a single-threaded process within a (possibly 
-constrained) container.
-
 \begin{table}[ht]
 \caption{Components of original and reproduced environments of the scalability experiment.}
-
-\ 
 
 \scriptsize
 \centering
@@ -261,13 +247,59 @@ Network BW  & 1400 MB/s             & 110 MB/s \\
 \end{tabular}
 \end{table}
 
+## Applications and Hardware Setup
+
+We use the following applications:
+
+  * CoMD. A reference implementation of classical molecular dynamics 
+    algorithms and workloads as used in materials science.
+  * CloverLeaf. A hydrodynamics mini-app to solve the compressible 
+    Euler equations in 2D, using an explicit, second-order method.
+  * SILT [@lim_silt_2011]. A memory-efficient, high-performance 
+    key-value store system based on flash storage that scales to serve 
+    billions of key-value items on a single node.
+  * RedisBench. The redis-benchmark utility that simulates running 
+    commands done by N clients at the same time sending M total 
+    queries.
+
+All applications were executed on the base and target systems. The 
+characteristics of every platform are described in Table 1[^paperepo]. 
+Every application runs as a single-threaded process within a (possibly 
+constrained) container.
+
 [^paperepo]: For a complete description of each machine, as well as 
 detailed software configuration, please refer to the repository of 
 this article at <https://github.com/ivotron/varsys16>.
 
-## Results
+## Results And Analysis
 
 Table 2 shows the results of our tests.
+
+\begin{table}[ht]
+\caption{Results.}
+
+\scriptsize
+\centering
+\begin{tabular}{@{} c c c @{}}
+\toprule
+
+Benchmark   & without & limits \\\midrule
+
+CoMD        & 1.635   & 0.992 \\
+CloverLeaf  & 1.878   & 1.026 \\
+SILT        & 3.306   & 0.642 \\
+Redis (get) & 3.093   & 0.589 \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reason why the memory-bound applications observe slowdowns is due 
+to the way memguard throttles memory bandwidth. memguard uses "busy" 
+throttling, which means that whenever a process goes above its 
+allocated memory bandwidth quota, a real-time thread begins to make 
+use of the CPU in order to limit its usage. This directly conflicts 
+with the way cgroups and the CFS scheduler works.
 
 # Discussion
 
