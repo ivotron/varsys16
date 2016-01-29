@@ -1,5 +1,5 @@
 ---
-title: "Predicting Cross-Platform Performance Variability With 
+title: "Predicting Cross-Platform Performance Variability Using 
 OS-level Virtualization"
 author:
   - name: "Ivo Jimenez and Carlos Maltzahn"
@@ -11,9 +11,9 @@ author:
   - name: "Adam Moody and Kathryn Mohror"
     affiliation: "_Lawrence Livermore National Laboratory_"
     email: "`{moody20,kathryn}@llnl.gov`"
-#  - name: "Remzi Arpaci-Dusseau and Andrea Arpaci-Dusseau"
-#    affiliation: "_University of Wisconsin-Madison_"
-#    email: "`{remzi,dusseau}@cs.wisc.edu`"
+  - name: "Remzi Arpaci-Dusseau and Andrea Arpaci-Dusseau"
+    affiliation: "_University of Wisconsin-Madison_"
+    email: "`{remzi,dusseau}@cs.wisc.edu`"
 abstract: |
   Evaluating experimental results in the field of systems research is 
   a challenging task, mainly due to changes and differences in 
@@ -469,13 +469,14 @@ their endeavour but leave runtime performance as a secondary problem.
 In systems research, runtime performance _is_ the subject of study, 
 thus we need to look at it as a primary issue.
 
-In [@collberg_measuring_2014] the authors took 613 articles published 
-in 13 top-tier systems research conferences and found that 25% of the 
-articles are reproducible (under their reproducibility criteria). The 
-authors did not analyze performance. In our case, we are interested 
-not only in binary reproducibility (the ability to run the same binary 
-as in the original setting) but also in reproducing performance 
-behavior.
+In [@collberg_repeatability_2015] the authors took 613 articles 
+published in 13 top-tier systems research conferences and found that 
+25% of the articles are reproducible (under their reproducibility 
+criteria). The authors did not analyze performance. In our case, we 
+are interested not only in being able to compile the original program, 
+but also in binary reproducibility (the ability to run the same binary 
+as in the original setting) and, more importantly, predicting the 
+variability of the system being evaluated.
 
 The closest work to our approach is Fracas [@buchert_accurate_2010]. 
 Fracas emulates CPU frequency for the same machine. As stated in that 
@@ -496,16 +497,16 @@ the underlying system.
 # Conclusion
 
 Characterizing the runtime performance variability of a machine helps 
-in the interpretation of results that one obtains when attempting to 
-reproduce performance across distinct hardware platforms. In the 
-future we will work in relaxing the constrains that we impose in order 
-to support multi-threaded applications and collocated workloads.
+in the interpretation of results obtained when attempting to reproduce 
+performance across distinct hardware platforms. In the future we will 
+work in relaxing the constrains that we impose in order to support 
+multi-threaded applications and collocated workloads.
 
 **Acknowledgements:** Work performed under auspices of U.S. Department 
 of Energy by Lawrence Livermore National Laboratory under Contract 
-DE-AC52-07NA27344 LLNL-DRAFT-XXXXXX. Sandia National Laboratories is 
-managed and operated by Sandia Corporation, for the U.S. Department of 
-Energy's National Nuclear Security Administration under contract 
+DE-AC52-07NA27344 LLNL-CONF-681457-DRAFT. Sandia National Laboratories 
+is managed and operated by Sandia Corporation, for the U.S. Department 
+of Energy's National Nuclear Security Administration under contract 
 DE-AC04-94AL85000.
 
 # References
