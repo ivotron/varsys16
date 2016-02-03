@@ -15,25 +15,25 @@ author:
 #    affiliation: "_University of Wisconsin-Madison_"
 #    email: "`{remzi,dusseau}@cs.wisc.edu`"
 abstract: |
-  Evaluating experimental results in the field of parallel and 
-  distributed systems research is a challenging task, mainly due to 
-  changes and differences in software and hardware in computational 
-  environments. In particular, when an experiment runs on different 
-  hardware than the one where it originally executed, predicting the 
-  differences in results is usually difficult and subjective. In this 
-  paper, we initially focus in single-node performance variability, 
-  since it is the fundamental building block in distributed and 
-  parallel settings. We introduce an architecture-independent method 
-  for characterizing the performance of a machine by obtaining a 
-  profile (a vector of microbenchark results) that we use to quantify 
-  the variability between two hardware platforms. We propose the use 
-  of isolation features that OS-level virtualization offers to reduce 
-  the performance variability observed when validating application 
+  Independent validation of experimental results in the field of 
+  parallel and distributed systems research is a challenging task, 
+  mainly due to changes and differences in software and hardware in 
+  computational environments. In particular, when an experiment runs 
+  on different hardware than the one where it originally executed, 
+  predicting the differences in results is difficult. In this paper, 
+  we initially focus in single-node performance variability, since it 
+  is the fundamental building block in distributed and parallel 
+  settings. We introduce an architecture-independent method for 
+  characterizing the performance of a machine by obtaining a profile 
+  (a vector of microbenchark results) that we use to quantify the 
+  variability between two hardware platforms. We propose the use of 
+  isolation features that OS-level virtualization offers to reduce the 
+  performance variability observed when validating application 
   performance across multiple machines. Our results show that, using 
   our variability characterization methodology, we can correctly 
   predict the variability bounds of CPU-intensive applications, as 
   well as reduce it by up to 2.8x if we make use of CPU bandwidth 
-  limitations,depending on the opcode mix of an application, as well 
+  limitations, depending on the opcode mix of an application, as well 
   as generational and architectural differences between two hardware 
   platforms.
 documentclass: ieeetran
@@ -67,16 +67,17 @@ and application configuration, as well as workload properties and
 hardware characteristics. A rule of thumb while executing experiments 
 is: across multiple runs, modify only one variable at a time so that 
 correlation can be accurately attributed to the right variable. 
-Generally, it is easy to account for all experimental variables except 
-the hardware. Predicting the differences in results that originate 
-when varying the hardware "variable" is a challenging task. Ideally, 
-given two particular hardware setups, we would like to have a 
-quantifiable expectation of the performance variability for _any_ 
-application running on these machines. That is, if we execute an 
-application on one machine and then execute it on another one, we 
-would like to bound the variability (i.e. the performance range) that 
-_any_ application running on the former would observe when executed on 
-the latter.
+Generally, properly enumerating all the environment variables in the 
+software stack is an arduous endeavour; adding hardware to the mix 
+makes it all but impractical since predicting the differences in 
+results that originate when we vary the hardware "variable" is a 
+challenging task. Ideally, given two particular hardware setups, we 
+would like to have a quantifiable expectation of the performance 
+variability for _any_ application running on these machines. That is, 
+if we execute an application on one machine and then execute it on 
+another one, we would like to bound the variability (i.e. the 
+performance range) that _any_ application running on the former would 
+observe when executed on the latter.
 
 [^unknowns]: Other _unknown_ variables might affect performance such 
 as room temperature that are very hard to account for. In our case, 
@@ -137,34 +138,22 @@ virtualization method where the kernel of an operating system allows
 for multiple isolated user space instances, instead of just one. Such 
 instances (often called containers, virtualization engines (VE), 
 virtual private servers (VPS), or jails) may look and feel like a real 
-server from the point of view of its owners and users. In addition to 
-isolation mechanisms, the kernel often provides resource management 
-features to limit the impact of one container's activities on the 
-other containers. Container technology is currently employed as a way 
-of reducing the complexity of software deployment and portability of 
-applications in cloud computing infrastructure. Arguably, containers 
-have taken the role that package management tools had in the past, 
-where they were used to control upgrades and keep track of change in 
-the dependencies of an application [@dicosmo_package_2008]. In the 
-remaining of this paper we focus on Docker [@merkel_docker_2014], 
-which employs Linux's cgroups and namespaces features to provide 
-OS-level virtualization. While our discussion is centered around 
-cgroups, the overall strategies can be applied to any of the other 
-technology mentioned above.
+server from the point of view of its users. In addition, the kernel 
+often provides resource management features to isolate the impact of 
+one container's activities on other containers. Container technology 
+is currently employed as a way of reducing the complexity of software 
+deployment and to improve portability across cloud computing 
+infrastructures. In the remaining of this paper we focus on Docker 
+[@merkel_docker_2014], which employs Linux's cgroups and namespaces 
+features to provide OS-level virtualization. While our discussion is 
+centered around cgroups, the overall strategies can be applied to any 
+of the other technology mentioned above.
 
 `cgroups` is a unified interface to the operating system's resource 
 management options, allowing users to specify how the kernel should 
 limit, account and isolate usage of CPU, memory, disk I/O and network 
 for a collection of processes. In our case, we're interested in the 
 CPU and memory limiting capabilities.
-
-## CPU Bandwidth Throttling
-
-`cgroups` exposes parameters for the Completely Fair Scheduler (CFS). 
-The allocation of CPU for a group can be given in relative (`shares`) 
-or absolute (`period` and `quota`) values. Figure 1 shows the effect 
-that multiple values for `quota` have on the execution of a CPU-bound 
-process.
 
 ![\[[source](http://github.com/ivotron/varsys16/figures/cgroups/)\] 
 Boxplots of runtimes of the `crafty` benchmark for multiple values of 
@@ -174,6 +163,18 @@ single-threaded process executing the crafty benchmark. Every boxplot
 summarizes 10 executions. As the figure shows, the interquartile box 
 is tight and it overlaps with the median.](figures/cgroups.png)
 
+## CPU Bandwidth Throttling
+
+`cgroups` exposes parameters for the Completely Fair Scheduler (CFS). 
+The allocation of CPU for a group can be given in relative (`shares`) 
+or absolute (`period` and `quota`) values. Figure 1[^source] shows the 
+effect that multiple values for `quota` have on the execution of a 
+CPU-bound process.
+
+[^source]: Throughout this article, we include a `source` URL for each 
+figure that links to a github page corresponding to the source code of 
+the experiment that generated this graph.
+
 ## Limitations of Throttling
 
 While absolute CPU bandwidth limitations work well to isolate 
@@ -182,26 +183,32 @@ effective to reproduce performance across multiple platforms and
 multiple applications, i.e. finding a value of `quota` on a target 
 machine that would reproduce the performance observed in a base one. 
 The main reason being that fundamental differences between two 
-machines (e.g. CPU features, memory bandwidth, etc.) make it 
-practically impossible to find a single value for `quota` that works 
-for _every_ application. One can tune the quota/period to reproduce 
-results for a particular application, but these values won't work for 
-another application with a different opcode mix.
+machines (e.g. CPU and memory bandwidth) make it practically 
+impossible to find a single value for `quota` that works for _every_ 
+application. One can tune the quota/period to reproduce results for a 
+particular application, but these values won't work for another 
+application with a different opcode mix.
 
 # Characterizing Performance Variability
 
 Quantifying performance variability across hardware platforms entails 
 characterizing the performance of single machines. While the hardware 
 and software specification can serve to describe the attributes of a 
-machine, the real performance characteristics can only be obtained by 
-executing programs and capturing metrics at runtime. So the question 
-boils down to which programs should we use to characterize 
-performance? Ideally, we would like to have programs that execute the 
-same opcode over and over again so that we could measure their 
-performance at the level of the OS (e.g. the amount of CPU utilization 
-over time). Since this is an impractical solution, an alternative is 
-to create synthetic microbenchmarks that get as close as possible to 
-exercising particular features of a system.
+machine, the real performance characteristics can only 
+feasibly[^feasible] be obtained by executing programs and capturing 
+metrics at runtime. So the question boils down to which programs 
+should we use to characterize performance? Ideally, we would like to 
+have programs that execute the same opcode over and over again so that 
+we could measure their performance at the level of the OS (e.g. the 
+amount of CPU utilization over time). Since this is an impractical 
+solution, an alternative is to create synthetic microbenchmarks that 
+get as close as possible to exercising particular features of a 
+system.
+
+[^feasible]: One can get real performance characteristics by 
+interposing a hardware emulation layer and deterministically associate 
+performance characteristics to each instruction based on specific 
+hardware specs. While possible, this is not feasible.
 
 [`stress-ng`](https://github.com/ColinIanKing/stress-ng) is a tool 
 that is used to "stress test a computer system in various selectable 
@@ -269,17 +276,6 @@ applied in step 1. While we believe this methodology applies to many
 scenarios, we currently have tested it on single-threaded and 
 non-collocated workloads (see _Results_ section).
 
-![\[[source](http://github.com/ivotron/varsys16/figures/fig2/)\] 
-Histograms for two variability profiles. The green histogram 
-corresponds to the $T_3$/_base_ profile and is described in this 
-section. The purple histogram is described in _Section V.B_. Each data 
-point in a histogram corresponds to the performance speedup/slowdown 
-of a stress-ng CPU method that a machine has w.r.t. another one. For 
-example, in the $T_3$/_base_ histogram (green), the speedup caused by 
-the architectural improvements of machine $T_3$ causes 11 stressors to 
-have a speedup within the `(2.3, 2.4]` range over machine 
-_base_.](figures/with_and_without_limits.png)
-
 [^porta]: An implementation of this methodology for Docker containers 
 is available at <https://github.com/systemslab/porta>. **Note to 
 reviewers**: the repo will be made public if this article gets 
@@ -293,7 +289,7 @@ that characterize the performance of the underlying hardware. At every
 execution step, a docker container is instantiated and constrained 
 with a value for CPU quota. It is reasonable to assume that the 
 performance of CPU w.r.t. quota allocations resembles a monotonically 
-decreasing function (as in Figure 1), thus, we can select a random 
+decreasing function as shown in Figure 1, thus, we can select a random 
 value within the valid tunable range (or alternatively the highest) 
 and climb/descend until we get to the desired performance for the 
 microbenchmark(s) on the target machine. When multiple microbenchmarks 
@@ -305,6 +301,17 @@ is being ported to (system $B$) is relatively more powerful that the
 one were an application originally ran[^cantspeeduphardware]. When 
 this assumption does not hold, one can resort to constraining the 
 original execution (i.e. generating a $C_a$ for $A$).
+
+![\[[source](http://github.com/ivotron/varsys16/figures/fig2/)\] 
+Histograms for two variability profiles. The green histogram 
+corresponds to the $T_3$/_base_ profile and is described in this 
+section. The purple histogram is described in _Section V.B_. Each data 
+point in a histogram corresponds to the performance speedup/slowdown 
+of a stress-ng CPU method that a machine has w.r.t. another one. For 
+example, in the $T_3$/_base_ histogram (green), the speedup caused by 
+the architectural improvements of machine $T_3$ causes 11 stressors to 
+have a speedup within the `(2.3, 2.4]` range over machine 
+_base_.](figures/with_and_without_limits.png)
 
 [^cantspeeduphardware]: If machine $B$ is slower than $A$, there's no 
 way one can speedup $A$. Overclocking may be an alternative but it has 
@@ -320,6 +327,21 @@ the reduction of the variability range when we apply the mapping
 methodology (Section IV) to the targets. We then study the effects of 
 this reduction by executing a variety of benchmarks on the same 
 platforms (_Section V.C_).
+
+## Hardware Setup
+
+The list of servers used in our study is shown in Table 1. The reason 
+for selecting a relatively old machine as our baseline is two-folded. 
+First, by picking an old machine we ensure that all the target 
+machines, when unconstrained in CPU bandwidth, can outperform the base 
+machine in every test of stress-ng. In other words, the base machine 
+serves as a lower-common denominator that all the targets can match or 
+surpass. Secondly, having an old computer as part of the our study 
+resembles the scenario that many researchers face while trying to 
+reproduce results found in the literature. In this case, we recreate a 
+hypothetical situation where 5 researchers (one per each machine) try 
+to replicate a study done somewhere between 2007-2009 (using a machine 
+model from 2006).
 
 \begin{table}[ht]
 \caption{Components of base and target machines used in our study. All 
@@ -351,31 +373,15 @@ t4 - rackform
 t5 - clemson
 -->
 
-## Hardware Setup
-
-The list of servers used in our study is shown in Table 1. The reason 
-for selecting a relatively old machine as our baseline is two-folded. 
-First, by picking an old machine we ensure that all the target 
-machines, when unconstrained in CPU bandwidth, can outperform the base 
-machine in every test of stress-ng. In other words, the base machine 
-serves as a lower-common denominator that all the targets can match or 
-surpass. Secondly, having an old computer as part of the our study 
-resembles the scenario that many researchers face while trying to 
-reproduce results found in the literature. In this case, we recreate a 
-hypothetical situation where 5 researchers (one per each machine) try 
-to replicate a study done somewhere between 2007-2009 (using a machine 
-model from 2006).
-
 ## Reduction of Variability Range
 
 Comparing the range of two histograms illustrates the differences in 
 performance variability for a pair of machines. Perfect performance 
 reproducibility of results would result in having the performance of 
-every benchmark to be in $x=1.0$ (+/- a reasonable delta, for example 
-5%). As mentioned before (_Section II.B_), fundamental differences 
-between two machines such as CPU, memory, micro-controllers, BIOS 
-configuration, etc. make it practically impossible to have perfect 
-reproducibility.
+every benchmark to be in $x=1.0$. As mentioned before (_Section 
+II.B_), fundamental differences between two machines such as CPU, 
+memory, micro-controllers and BIOS configuration make it practically 
+impossible to have perfect reproducibility.
 
 Yet, reducing the performance variability (shrinking the range around 
 $x=1.0$) is an attainable goal. The green histogram in Figure 2 
@@ -404,7 +410,7 @@ observed with dynamic frequency scaling.
 
 ## Validation of Variability Characterization
 
-Assuming stress-ng's distinct CPU methods represent a realistic 
+Assuming `stress-ng`'s distinct CPU methods represent a realistic 
 coverage of the multiple physical features of a processor, we can 
 reasonably assume that the performance of applications with and 
 without constrained CPU bandwidth will land within the range obtained 
@@ -420,21 +426,11 @@ significantly influence the behavior, depending on which machine is
 used to build it, as well as where a container is executed. In order 
 to minimize the variability that might originate from distinct 
 compiler optimizations, and as a way of making meaningful comparisons, 
-we disabled compiler optimizations (`gcc`'s `-O0` flag) for all of the 
+we disable compiler optimizations (`gcc`'s `-O0` flag) for all of the 
 evaluated applications. Also, as mentioned previously, these are 
-single-threaded processes running in uncontended systems.
-
-![\[[source](http://github.com/ivotron/varsys16/figures/fig3/)\] 
-Histogram for $T_3'$/_base_ and $T_3$/_base_ profiles. The data points 
-come from the following benchmarks: STREAM, cloverleaf-serial, 
-comd-serial, sequoia (amgmk, crystalmk, irsmk), c-ray, crafty, 
-unixbench, stress-ng (string, matrix, memory and cpu-cache). Vertical 
-lines denote the limits of the predicted variability range (Figure 2), 
-obtained from executing stress-ng CPU stressors. Points outside the 
-predicted line correspond to STREAM, a memory-bound workload (the 
-rightmost point for the unconstrained (green) histogram is not shown 
-to improve the readability of the figure; it lies on the 14x 
-bin).](figures/benchmarks.png)
+single-threaded processes running in uncontended systems; our goal is 
+to generate bounded performance rather than perfect reproducibility 
+(_Section V.B_).
 
 Figure 3 shows the results of our tests for $T_3$ for both constrained 
 (purple) and unconstrained (green) scenarios. Each point on a 
@@ -452,15 +448,26 @@ $[1.5-1.6]$ and another (not shown) at 14x, both corresponding to
 memory-bound benchmarks (stress-ng-memory-malloc and STREAM, 
 respectively).
 
+![\[[source](http://github.com/ivotron/varsys16/figures/fig3/)\] 
+Histogram for $T_3'$/_base_ and $T_3$/_base_ profiles. The data points 
+come from the following benchmarks: STREAM, cloverleaf-serial, 
+comd-serial, sequoia (amgmk, crystalmk, irsmk), c-ray, crafty, 
+unixbench, stress-ng (string, matrix, memory and cpu-cache). Vertical 
+lines denote the limits of the predicted variability range (Figure 2), 
+obtained from executing stress-ng CPU stressors. Points outside the 
+predicted line correspond to STREAM, a memory-bound workload (the 
+rightmost point for the unconstrained (green) histogram is not shown 
+to improve the readability of the figure; it lies on the 14x 
+bin).](figures/benchmarks.png)
+
 From the analysis of the variability profiles for these 66 benchmarks, 
 we can conclude that the set of stress-ng microbenchmarks are good 
-representatives of the CPU performance of a machine and thus they can 
-serve to characterize the performance of a machine for CPU-intensive 
-workloads. Also, the variability profile seems to be a good 
-performance predictor, i.e. an execution lies within the determined 
-speedup/slowdown range.
+representatives of CPU performance and thus they can serve to 
+characterize a machine for CPU-intensive workloads. Also, the 
+variability profile seems to be a good performance predictor, i.e. an 
+execution lies within the determined speedup/slowdown range.
 
-[^paperepo]: For a complete description benchmarks, as well as 
+[^paperepo]: For a complete description of benchmarks, as well as 
 detailed hardware and software configuration please refer to the 
 repository of this article at <https://github.com/ivotron/varsys16>. 
 **Note to reviewers**: the repo is private but access can be granted 
@@ -477,11 +484,12 @@ accounted for. However, this does not correspond to real-world
 scenarios thus, in the latter, applications run without constraints so 
 that they can take advantage of all the resources available to them 
 but sound statistical analysis [@hoefler_scientific_2015] is applied 
-to the experimental design (e.g. create many more samples).
+to the experimental design and analysis of results.
 
 **Providing Performance Profiles Alongside Experimental Results**: 
-This allows to preserve the characteristics of the underlying hardware 
-and facilitates the interpretation of results in the future.
+This allows to preserve the performance characteristics of the 
+underlying hardware that an experiment executed on and facilitates the 
+interpretation of results in the future.
 
 # Related Work
 
@@ -497,19 +505,10 @@ performance as a secondary problem. In systems research, runtime
 performance _is_ the subject of study, thus we need to look at it as a 
 primary issue.
 
-In [@collberg_repeatability_2015] the authors took 613 articles 
-published in 13 top-tier systems research conferences and found that 
-25% of the articles are reproducible (under their reproducibility 
-criteria). The authors did not analyze performance. In our case, we 
-are interested not only in being able to compile the original program, 
-but also in binary reproducibility (the ability to run the same binary 
-as in the original setting) and, more importantly, predicting the 
-variability of the system being evaluated.
-
 The closest work to our approach is Fracas [@buchert_accurate_2010]. 
 Fracas emulates CPU frequency for the same machine. As reported in 
 [@buchert_accurate_2010], accurately emulating CPU frequencies is a 
-challenging task, even within the same system. Instead, we take the 
+challenging task, even in the same system. Instead, we take the 
 performance profiles as our baseline and quantify variability, 
 irrespective of the differences between frequencies.
 
@@ -517,17 +516,24 @@ Architecture-independent characterization of workloads
 [@hoste_microarchitectureindependent_2007] and performance 
 [@marin_crossarchitecture_2004] has been extensively researched in the 
 past. In our case, working at the OS virtualization level imposes new 
-challenges. A way of overcoming these is by using a comprehensive list 
-of microbenchmarks that can accurately characterize the performance of 
-the underlying system.
+challenges. As we have shown, a way of overcoming these is by using a 
+comprehensive list of microbenchmarks that can accurately characterize 
+the performance of the underlying system.
 
 # Conclusion
 
-Characterizing the runtime performance variability of a machine helps 
-in the interpretation of results obtained when attempting to reproduce 
-performance across distinct hardware platforms. In the future we will 
-work in relaxing the constrains that we impose in order to support 
-multi-threaded applications and collocated workloads.
+Characterizing the runtime performance variability of a pair of 
+machines significantly facilitates the interpretation of results when 
+validating performance reproducibility across distinct hardware 
+platforms. While formal methods and performance models (i.e., hardware 
+emulation) can, in principle, accurately capture performance 
+characteristics of hardware, it comes at extreme cost and difficulty. 
+In this work we have introduced a simpler model for validating results 
+that relies on performance profiles and incorporates variability 
+ranges. With the aid of OS-level virtualization we can reduce the 
+variability by limiting CPU bandwidth. In the future we will work in 
+relaxing the constrains that we impose in order to support 
+multi-threaded, multi-node applications and collocated workloads.
 
 **Acknowledgements:** Work performed under auspices of U.S. Department 
 of Energy by Lawrence Livermore National Laboratory under Contract 
