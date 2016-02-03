@@ -1,3 +1,5 @@
+.DS_Store
 *.sw?
+.ropeproject
 build.log
 out/main.pdf
