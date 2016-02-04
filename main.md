@@ -47,6 +47,7 @@ usedefaultspacing: true
 fontfamily: times
 conferencename: VarSys2016
 copyrightyear: 2016
+linkcolor: black
 ---
 
 # Introduction
@@ -153,15 +154,7 @@ of the other technology mentioned above.
 management options, allowing users to specify how the kernel should 
 limit, account and isolate usage of CPU, memory, disk I/O and network 
 for a collection of processes. In our case, we're interested in the 
-CPU and memory limiting capabilities.
-
-![\[[source](http://github.com/ivotron/varsys16/figures/cgroups/)\] 
-Boxplots of runtimes of the `crafty` benchmark for multiple values of 
-cpu quota (with a fixed period of 100 microseconds). This illustrates 
-the effectiveness of the CFS scheduler for limiting CPU access for a 
-single-threaded process executing the crafty benchmark. Every boxplot 
-summarizes 10 executions. As the figure shows, the interquartile box 
-is tight and it overlaps with the median.](figures/cgroups.png)
+CPU bandwidth limiting capabilities.
 
 ## CPU Bandwidth Throttling
 
@@ -171,9 +164,18 @@ or absolute (`period` and `quota`) values. Figure 1[^source] shows the
 effect that multiple values for `quota` have on the execution of a 
 CPU-bound process.
 
+![\[[source](http://github.com/ivotron/varsys16/figures/cgroups/)\] 
+Boxplots of runtimes of the `crafty` benchmark for multiple values of 
+cpu quota (with a fixed period of 100 microseconds). This illustrates 
+the effectiveness of the CFS scheduler for limiting CPU access for a 
+single-threaded process executing the crafty benchmark. Every boxplot 
+summarizes 10 executions. As the figure shows, the interquartile box 
+is tight and it overlaps with the median.](figures/cgroups.png)
+
 [^source]: Throughout this article, we include a `source` URL for each 
 figure that links to a github page corresponding to the source code of 
-the experiment that generated this graph.
+the experiment that generated this graph. **Note to reviewers:** 
+access to repo can be given upon request.
 
 ## Limitations of Throttling
 
@@ -198,12 +200,10 @@ machine, the real performance characteristics can only
 feasibly[^feasible] be obtained by executing programs and capturing 
 metrics at runtime. So the question boils down to which programs 
 should we use to characterize performance? Ideally, we would like to 
-have programs that execute the same opcode over and over again so that 
-we could measure their performance at the level of the OS (e.g. the 
-amount of CPU utilization over time). Since this is an impractical 
-solution, an alternative is to create synthetic microbenchmarks that 
-get as close as possible to exercising particular features of a 
-system.
+have many programs that execute every possible opcode mix so that we 
+measure their performance. Since this is an impractical solution, an 
+alternative is to create synthetic microbenchmarks that get as close 
+as possible to exercising all the available features of a system.
 
 [^feasible]: One can get real performance characteristics by 
 interposing a hardware emulation layer and deterministically associate 
@@ -233,8 +233,8 @@ green) of the variability profile of machines _base_ and $T_3$ from
 Table 1 (i.e. the $T_3$/_base_ profile). The purple histogram is 
 discussed in _Section V_, so our interest is on the green one for now. 
 In our work, we look closely to the _range_ of the histogram of the 
-variability profile since our goal is to reduce this range so that an 
-application has less wiggle room for performance variations.
+variability profile since our goal is to bound the range of observed 
+performance variability.
 
 Given an application, at the hardware level, variability can originate 
 from mainly two characteristics: hardware generation and major 
@@ -307,7 +307,7 @@ Histograms for two variability profiles. The green histogram
 corresponds to the $T_3$/_base_ profile and is described in this 
 section. The purple histogram is described in _Section V.B_. Each data 
 point in a histogram corresponds to the performance speedup/slowdown 
-of a stress-ng CPU method that a machine has w.r.t. another one. For 
+of a `stress-ng` CPU method that a machine has w.r.t. another one. For 
 example, in the $T_3$/_base_ histogram (green), the speedup caused by 
 the architectural improvements of machine $T_3$ causes 11 stressors to 
 have a speedup within the `(2.3, 2.4]` range over machine 
@@ -334,7 +334,7 @@ The list of servers used in our study is shown in Table 1. The reason
 for selecting a relatively old machine as our baseline is two-folded. 
 First, by picking an old machine we ensure that all the target 
 machines, when unconstrained in CPU bandwidth, can outperform the base 
-machine in every test of stress-ng. In other words, the base machine 
+machine in every test of `stress-ng`. In other words, the base machine 
 serves as a lower-common denominator that all the targets can match or 
 surpass. Secondly, having an old computer as part of the our study 
 resembles the scenario that many researchers face while trying to 
@@ -445,23 +445,23 @@ performance of 64 out of 66 never go above the smaller $[0.6-1.6]$
 range. In the case of executions without limits (green histogram), we 
 observe 2 points going out of the predicted range, the one at 
 $[1.5-1.6]$ and another (not shown) at 14x, both corresponding to 
-memory-bound benchmarks (stress-ng-memory-malloc and STREAM, 
+memory-bound benchmarks (`stress-ng-memory-malloc` and `STREAM`, 
 respectively).
 
 ![\[[source](http://github.com/ivotron/varsys16/figures/fig3/)\] 
 Histogram for $T_3'$/_base_ and $T_3$/_base_ profiles. The data points 
-come from the following benchmarks: STREAM, cloverleaf-serial, 
+come from the following benchmarks: `STREAM, cloverleaf-serial, 
 comd-serial, sequoia (amgmk, crystalmk, irsmk), c-ray, crafty, 
-unixbench, stress-ng (string, matrix, memory and cpu-cache). Vertical 
+unixbench, stress-ng` (string, matrix, memory and cpu-cache). Vertical 
 lines denote the limits of the predicted variability range (Figure 2), 
-obtained from executing stress-ng CPU stressors. Points outside the 
+obtained from executing `stress-ng` CPU stressors. Points outside the 
 predicted line correspond to STREAM, a memory-bound workload (the 
 rightmost point for the unconstrained (green) histogram is not shown 
 to improve the readability of the figure; it lies on the 14x 
 bin).](figures/benchmarks.png)
 
 From the analysis of the variability profiles for these 66 benchmarks, 
-we can conclude that the set of stress-ng microbenchmarks are good 
+we can conclude that the set of `stress-ng` microbenchmarks are good 
 representatives of CPU performance and thus they can serve to 
 characterize a machine for CPU-intensive workloads. Also, the 
 variability profile seems to be a good performance predictor, i.e. an 
