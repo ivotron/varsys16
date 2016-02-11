@@ -1,0 +1,98 @@
+- hosts: all
+  vars:
+    cpus: "0"
+    mem: 512M
+    fldr: "{{ansible_env.HOME}}/var/porta/base-vs-limited-targets"
+    skip_base: false
+    skip_memguard: true
+  pre_tasks:
+  - name: Assert preconditions
+    assert:
+      that:
+      - "ansible_distribution == 'Ubuntu'"
+      - "ansible_lsb.major_release|int >= 12"
+      - "('3.13' in ansible_kernel or '3.15' in ansible_kernel or '3.19' in ansible_kernel)"
+      - "'base' in groups"
+      - "'targets' in groups"
+      - "groups.base|length == 1"
+      - "groups.targets|length > 0"
+      - "benchmarks is defined"
+      - "cpu_period is defined"
+      - "cpu_quotas is defined"
+  - name: Get jq version
+    local_action: command jq --version
+    register: jq_version
+    failed_when: "'1.5' not in jq_version.stdout"
+    sudo: false
+  - name: check that results for base exist when we skip it
+    local_action: stat path=tests/{{groups.base}}
+    register: results_for_base
+    when: skip_base|bool
+    failed_when: results_for_base.stat.exists
+    sudo: false
+
+  tasks:
+# setup
+  - name: install linux linux-headers
+    package: name=linux-headers-{{ ansible_kernel }} state=present
+  - name: delete previous results
+    file: path={{fldr}} state=absent
+    ignore_errors: true
+  - name: create test folder
+    file: path={{fldr}}/tests state=directory mode=0755
+  - name: delete any previous local results
+    local_action: file path=tests state=absent
+    run_once: true
+    when: not skip_base|bool
+    sudo: false
+    ignore_errors: true
+  - name: create test folder locally
+    local_action: file path=tests state=directory mode=0755
+    run_once: true
+    sudo: false
+  - name: pull memguard image
+    command: docker pull ivotron/memguard
+
+# execute test benchmarks
+  - name: pull benchmark images
+    command: docker pull {{ item }}
+    with_items: benchmarks
+  - name: execute benchmarks without limits
+    shell: docker run --rm --memory={{mem}} --cpuset-cpus={{cpus}} -e BENCHMARKS="cpu-methods" {{item[0]}} > {{fldr}}/tests/{{item[0].replace('/','.')}}_limits-without_cpuquota-0_rep-{{item[1]}}.json
+    with_nested:
+    - benchmarks
+    - repetitions
+  - name: execute benchmarks with CPU limits
+    shell: docker run --rm --memory={{mem}} --cpuset-cpus={{cpus}} --cpu-period={{cpu_period}} --cpu-quota={{item[1]}} -e BENCHMARKS="cpu-methods" {{item[0]}} > {{fldr}}/tests/{{item[0].replace('/','.')}}_limits-cpu_cpuquota-{{item[1]}}_rep-{{item[2]}}.json
+    with_nested:
+    - benchmarks
+    - cpu_quotas
+    - repetitions
+
+# fetch results
+  - name: compress tests folder
+    command: tar cvfj tests.bz2 tests chdir={{fldr}}
+  - name: get result tar balls
+    fetch: src={{fldr}}/tests.bz2 dest=tests/{{inventory_hostname}}.bz2 flat=yes
+    when: inventory_hostname in groups.targets or (inventory_hostname in groups.base and not skip_base|bool)
+  - name: uncompress locally
+    local_action: command ./uncompress
+    run_once: true
+    sudo: false
+
+# postprocess on localhost
+  - name: merge results
+    local_action: command ./merge_results
+    run_once: true
+    sudo: false
+
+# store facts
+  - name: create facts folder
+    local_action: file path=facts state=directory mode=0755
+    run_once: true
+    sudo: false
+  - name: store facts about remotes
+    local_action: copy content="{{ hostvars[item] | to_nice_json }}" dest=./facts/{{ item }}.json
+    run_once: true
+    sudo: false
+    with_items: groups['all']

@@ -1,0 +1,518 @@
+{
+    "ansible_all_ipv4_addresses": [
+        "172.17.42.1", 
+        "128.104.222.50"
+    ], 
+    "ansible_all_ipv6_addresses": [
+        "fe80::28f4:e4ff:fe9d:141f", 
+        "fe80::e895:7ff:fe48:4b58", 
+        "fe80::a2ec:f9ff:fecd:eea2"
+    ], 
+    "ansible_architecture": "x86_64", 
+    "ansible_bios_date": "11/11/2014", 
+    "ansible_bios_version": "C220M4.2.0.3d.0.111120141447", 
+    "ansible_cmdline": {
+        "BOOT_IMAGE": "/boot/vmlinuz-3.13.0-57-generic", 
+        "console": "ttyS0,115200", 
+        "crashkernel": "384M-:128M", 
+        "ro": true, 
+        "root": "UUID=753eb1b3-ffb7-4e40-a7c1-9d6426a247e1"
+    }, 
+    "ansible_date_time": {
+        "date": "2016-01-24", 
+        "day": "24", 
+        "epoch": "1453683350", 
+        "hour": "18", 
+        "iso8601": "2016-01-25T00:55:50Z", 
+        "iso8601_basic": "20160124T185550975168", 
+        "iso8601_basic_short": "20160124T185550", 
+        "iso8601_micro": "2016-01-25T00:55:50.975281Z", 
+        "minute": "55", 
+        "month": "01", 
+        "second": "50", 
+        "time": "18:55:50", 
+        "tz": "CST", 
+        "tz_offset": "-0600", 
+        "weekday": "Sunday", 
+        "weekday_number": "0", 
+        "weeknumber": "03", 
+        "year": "2016"
+    }, 
+    "ansible_default_ipv4": {
+        "address": "128.104.222.50", 
+        "alias": "eth2", 
+        "broadcast": "128.104.223.255", 
+        "gateway": "128.104.222.1", 
+        "interface": "eth2", 
+        "macaddress": "a0:ec:f9:cd:ee:a2", 
+        "mtu": 1500, 
+        "netmask": "255.255.254.0", 
+        "network": "128.104.222.0", 
+        "type": "ether"
+    }, 
+    "ansible_default_ipv6": {}, 
+    "ansible_devices": {
+        "sda": {
+            "holders": [], 
+            "host": "RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS-3 3108 [Invader] (rev 02)", 
+            "model": "ST1200MM0007", 
+            "partitions": {
+                "sda1": {
+                    "sectors": "33554432", 
+                    "sectorsize": 512, 
+                    "size": "16.00 GB", 
+                    "start": "2048"
+                }, 
+                "sda2": {
+                    "sectors": "6291456", 
+                    "sectorsize": 512, 
+                    "size": "3.00 GB", 
+                    "start": "33556480"
+                }, 
+                "sda3": {
+                    "sectors": "6291456", 
+                    "sectorsize": 512, 
+                    "size": "3.00 GB", 
+                    "start": "39847936"
+                }, 
+                "sda4": {
+                    "sectors": "2298081473", 
+                    "sectorsize": 512, 
+                    "size": "1.07 TB", 
+                    "start": "46139392"
+                }
+            }, 
+            "removable": "0", 
+            "rotational": "1", 
+            "scheduler_mode": "deadline", 
+            "sectors": "2344225968", 
+            "sectorsize": "512", 
+            "size": "1.09 TB", 
+            "support_discard": "0", 
+            "vendor": "SEAGATE"
+        }, 
+        "sdb": {
+            "holders": [], 
+            "host": "RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS-3 3108 [Invader] (rev 02)", 
+            "model": "ST1200MM0007", 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "1", 
+            "scheduler_mode": "deadline", 
+            "sectors": "2344225968", 
+            "sectorsize": "512", 
+            "size": "1.09 TB", 
+            "support_discard": "0", 
+            "vendor": "SEAGATE"
+        }, 
+        "sdc": {
+            "holders": [], 
+            "host": "RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS-3 3108 [Invader] (rev 02)", 
+            "model": "INTEL SSDSC2BB48", 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "0", 
+            "scheduler_mode": "deadline", 
+            "sectors": "937703088", 
+            "sectorsize": "512", 
+            "size": "447.13 GB", 
+            "support_discard": "4096", 
+            "vendor": "ATA"
+        }
+    }, 
+    "ansible_distribution": "Ubuntu", 
+    "ansible_distribution_major_version": "14", 
+    "ansible_distribution_release": "trusty", 
+    "ansible_distribution_version": "14.04", 
+    "ansible_dns": {
+        "nameservers": [
+            "128.104.222.8"
+        ], 
+        "search": [
+            "wisc.cloudlab.us"
+        ]
+    }, 
+    "ansible_docker0": {
+        "active": true, 
+        "device": "docker0", 
+        "id": "8000.2af4e49d141f", 
+        "interfaces": [
+            "veth704b4c2"
+        ], 
+        "ipv4": {
+            "address": "172.17.42.1", 
+            "broadcast": "global", 
+            "netmask": "255.255.0.0", 
+            "network": "172.17.0.0"
+        }, 
+        "ipv6": [
+            {
+                "address": "fe80::e895:7ff:fe48:4b58", 
+                "prefix": "64", 
+                "scope": "link"
+            }
+        ], 
+        "macaddress": "2a:f4:e4:9d:14:1f", 
+        "mtu": 1500, 
+        "promisc": false, 
+        "stp": false, 
+        "type": "bridge"
+    }, 
+    "ansible_domain": "wisc.cloudlab.us", 
+    "ansible_env": {
+        "HOME": "/users/ivotron", 
+        "LANG": "en_US.UTF-8", 
+        "LC_ALL": "en_US.UTF-8", 
+        "LC_MESSAGES": "en_US.UTF-8", 
+        "LOGNAME": "ivotron", 
+        "MAIL": "/var/mail/ivotron", 
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games", 
+        "PWD": "/users/ivotron", 
+        "SHELL": "/bin/bash", 
+        "SHLVL": "1", 
+        "SSH_CLIENT": "128.114.52.38 57747 22", 
+        "SSH_CONNECTION": "128.114.52.38 57747 128.104.222.50 22", 
+        "SSH_TTY": "/dev/pts/3", 
+        "TERM": "screen-256color", 
+        "USER": "ivotron", 
+        "XDG_RUNTIME_DIR": "/run/user/20001", 
+        "XDG_SESSION_ID": "22", 
+        "_": "/usr/bin/python"
+    }, 
+    "ansible_eth0": {
+        "active": false, 
+        "device": "eth0", 
+        "macaddress": "74:a0:2f:5f:14:94", 
+        "module": "enic", 
+        "mtu": 9000, 
+        "pciid": "0000:09:00.0", 
+        "promisc": false, 
+        "type": "ether"
+    }, 
+    "ansible_eth1": {
+        "active": false, 
+        "device": "eth1", 
+        "macaddress": "74:a0:2f:5f:14:95", 
+        "module": "enic", 
+        "mtu": 9000, 
+        "pciid": "0000:0a:00.0", 
+        "promisc": false, 
+        "type": "ether"
+    }, 
+    "ansible_eth2": {
+        "active": true, 
+        "device": "eth2", 
+        "ipv4": {
+            "address": "128.104.222.50", 
+            "broadcast": "128.104.223.255", 
+            "netmask": "255.255.254.0", 
+            "network": "128.104.222.0"
+        }, 
+        "ipv6": [
+            {
+                "address": "fe80::a2ec:f9ff:fecd:eea2", 
+                "prefix": "64", 
+                "scope": "link"
+            }
+        ], 
+        "macaddress": "a0:ec:f9:cd:ee:a2", 
+        "module": "igb", 
+        "mtu": 1500, 
+        "pciid": "0000:01:00.0", 
+        "promisc": false, 
+        "type": "ether"
+    }, 
+    "ansible_eth3": {
+        "active": false, 
+        "device": "eth3", 
+        "macaddress": "a0:ec:f9:cd:ee:a3", 
+        "module": "igb", 
+        "mtu": 1500, 
+        "pciid": "0000:01:00.1", 
+        "promisc": false, 
+        "type": "ether"
+    }, 
+    "ansible_fips": false, 
+    "ansible_form_factor": "Rack Mount Chassis", 
+    "ansible_fqdn": "pc-c220m4-r02-20.wisc.cloudlab.us", 
+    "ansible_hostname": "node", 
+    "ansible_interfaces": [
+        "docker0", 
+        "lo", 
+        "veth704b4c2", 
+        "eth3", 
+        "eth2", 
+        "eth1", 
+        "eth0"
+    ], 
+    "ansible_kernel": "3.13.0-57-generic", 
+    "ansible_lo": {
+        "active": true, 
+        "device": "lo", 
+        "ipv4": {
+            "address": "127.0.0.1", 
+            "broadcast": "host", 
+            "netmask": "255.0.0.0", 
+            "network": "127.0.0.0"
+        }, 
+        "ipv6": [
+            {
+                "address": "::1", 
+                "prefix": "128", 
+                "scope": "host"
+            }
+        ], 
+        "mtu": 65536, 
+        "promisc": false, 
+        "type": "loopback"
+    }, 
+    "ansible_lsb": {
+        "codename": "trusty", 
+        "description": "Ubuntu 14.04.2 LTS", 
+        "id": "Ubuntu", 
+        "major_release": "14", 
+        "release": "14.04"
+    }, 
+    "ansible_machine": "x86_64", 
+    "ansible_machine_id": "647b134a918db40a7bdb261353ebc764", 
+    "ansible_memfree_mb": 125647, 
+    "ansible_memory_mb": {
+        "nocache": {
+            "free": 127376, 
+            "used": 1173
+        }, 
+        "real": {
+            "free": 125647, 
+            "total": 128549, 
+            "used": 2902
+        }, 
+        "swap": {
+            "cached": 0, 
+            "free": 3071, 
+            "total": 3071, 
+            "used": 0
+        }
+    }, 
+    "ansible_memtotal_mb": 128549, 
+    "ansible_mounts": [
+        {
+            "device": "/dev/sda1", 
+            "fstype": "ext3", 
+            "mount": "/", 
+            "options": "rw,errors=remount-ro", 
+            "size_available": 11983642624, 
+            "size_total": 16776077312, 
+            "uuid": ""
+        }
+    ], 
+    "ansible_nodename": "node.ivotron-qv12699.schedock-pg0.wisc.cloudlab.us", 
+    "ansible_os_family": "Debian", 
+    "ansible_pkg_mgr": "apt", 
+    "ansible_processor": [
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz", 
+        "GenuineIntel", 
+        "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz"
+    ], 
+    "ansible_processor_cores": 8, 
+    "ansible_processor_count": 2, 
+    "ansible_processor_threads_per_core": 2, 
+    "ansible_processor_vcpus": 32, 
+    "ansible_product_name": "UCSC-C220-M4S", 
+    "ansible_product_serial": "NA", 
+    "ansible_product_uuid": "NA", 
+    "ansible_product_version": "A0", 
+    "ansible_python_version": "2.7.6", 
+    "ansible_selinux": false, 
+    "ansible_service_mgr": "upstart", 
+    "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAJjN/Vp4limMlvCfrwU6FyNEkshHQju2Xf+YvrIH2g4LxpuVfhCYDkY/CWGjdazmufnGmCsY5BryqjaD+wydfnqpWff3dC8yHotv4p5U70AHCKUT4Fn/s0QAAIw3exrbZyXBfsSmG/rags11VzhOttUo6OoYWtJPQcSHVgaLltLzAAAAFQD9FQ90NnclVQU61McmPq6lbrgwcQAAAIAwmvrZxrUoVm/clrzFqsag3QZAiJsc338mimmUHUdcQa/JukmmU+bIXaEoPz6nCf2SBSP7c/swQBSXGpdMLvBOEDzkDEvHUPXqgiRrSZLslOcSk3nOwqP01A5EcoMWz/wQTBI5OLsr6IbFtj2jJgBVrx2P5iwP2mzsyY+PUKfjhwAAAIEAla3/8+XjS8/+WWS0hUiqYNCYqanHckBL7Udc6NDgeKCP0ZoaKRFtLj2bf+Z+B0e/DSJXV8N/EX8DwUWCFO2y8YHybjEhrHakac1sFImVJE+09pIDvpeQOFMdArkiwKWhOPwqIYpu9/6JaPYrYMymsBNxxhRJJo9Bks7EUdnJAFY=", 
+    "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC66iOu58jeZCvsYeQxAOSLeQYpiajYVTwBCXIqaPGfx8QgpM8rpmql1hJoxx/HQq9FhX/TljbvO75XmNrDNp+LMyhpidJ+8KFQAZrgQk3/B2oq9N1bOD3PF+TUloG76aGs4nk+B5cIF3f4POstFVbnzImQIwL2E92PmW6bCAtWMpIXC1M8EFbxh2YstByRs2R1fsN96Y3Ir/Ut+HWYIuI+LIwCNmX6hoVSPZlM9Rg7G+j6XlW5pGihPwgSdSqvUuairqwo9zZ65K2BNKocWyFvNm/eY3r0rGuxxhGRAsnBebSwcd06pR7pAPYuVAhO47JmLTxeJIjqNz6ZG05WYmHX", 
+    "ansible_swapfree_mb": 3071, 
+    "ansible_swaptotal_mb": 3071, 
+    "ansible_system": "Linux", 
+    "ansible_system_vendor": "Cisco Systems Inc", 
+    "ansible_uptime_seconds": 55918, 
+    "ansible_user": "ivotron", 
+    "ansible_user_dir": "/users/ivotron", 
+    "ansible_user_gecos": "ivotron", 
+    "ansible_user_gid": 6090, 
+    "ansible_user_id": "ivotron", 
+    "ansible_user_shell": "/bin/bash", 
+    "ansible_user_uid": 20001, 
+    "ansible_userspace_architecture": "x86_64", 
+    "ansible_userspace_bits": "64", 
+    "ansible_version": {
+        "full": "2.0.0.2", 
+        "major": 2, 
+        "minor": 0, 
+        "revision": 0, 
+        "string": "2.0.0.2"
+    }, 
+    "ansible_veth704b4c2": {
+        "active": true, 
+        "device": "veth704b4c2", 
+        "ipv6": [
+            {
+                "address": "fe80::28f4:e4ff:fe9d:141f", 
+                "prefix": "64", 
+                "scope": "link"
+            }
+        ], 
+        "macaddress": "2a:f4:e4:9d:14:1f", 
+        "mtu": 1500, 
+        "promisc": true, 
+        "type": "ether"
+    }, 
+    "ansible_virtualization_role": "host", 
+    "ansible_virtualization_type": "kvm", 
+    "base_metrics": {
+        "changed": false, 
+        "stat": {
+            "atime": 1453668632.260114, 
+            "checksum": "5ca156febf081de2b414630a09fa67c22d5e6086", 
+            "ctime": 1453668145.946886, 
+            "dev": 2049, 
+            "exists": true, 
+            "gid": 1099, 
+            "gr_name": "ivo", 
+            "inode": 6029477, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "md5": "2b7c8f2746e83bf6bfbc3715876c12cf", 
+            "mode": "0640", 
+            "mtime": 1453668145.946886, 
+            "nlink": 1, 
+            "path": "base.json", 
+            "pw_name": "ivo", 
+            "rgrp": true, 
+            "roth": false, 
+            "rusr": true, 
+            "size": 479, 
+            "uid": 1099, 
+            "wgrp": false, 
+            "woth": false, 
+            "wusr": true, 
+            "xgrp": false, 
+            "xoth": false, 
+            "xusr": false
+        }
+    }, 
+    "benchmark_image": "ivotron/microbench", 
+    "categories": "memory", 
+    "cpu_period": 10000, 
+    "cpuquota": {
+        "192.168.140.86": 6372, 
+        "apt144.apt.emulab.net": 8171, 
+        "clnode078.clemson.cloudlab.us": 7011, 
+        "pc-c220m4-r02-20.wisc.cloudlab.us": 6395, 
+        "pc31.utahddc.geniracks.net": 7266, 
+        "piha.soe.ucsc.edu": -1
+    }, 
+    "cpus": 0, 
+    "docker_flags": "--rm --cpuset-cpus=0 --cpu-period=10000 ", 
+    "group_names": [
+        "targets"
+    ], 
+    "groups": {
+        "all": [
+            "localhost", 
+            "piha.soe.ucsc.edu", 
+            "192.168.140.86", 
+            "apt144.apt.emulab.net", 
+            "clnode078.clemson.cloudlab.us", 
+            "pc-c220m4-r02-20.wisc.cloudlab.us", 
+            "pc31.utahddc.geniracks.net"
+        ], 
+        "base": [
+            "piha.soe.ucsc.edu"
+        ], 
+        "targets": [
+            "192.168.140.86", 
+            "apt144.apt.emulab.net", 
+            "clnode078.clemson.cloudlab.us", 
+            "pc-c220m4-r02-20.wisc.cloudlab.us", 
+            "pc31.utahddc.geniracks.net"
+        ], 
+        "ungrouped": [
+            "localhost"
+        ]
+    }, 
+    "inventory_dir": "/home/ivo/src/porta/ansible/tune-targets", 
+    "inventory_file": "inventory", 
+    "inventory_hostname": "pc-c220m4-r02-20.wisc.cloudlab.us", 
+    "inventory_hostname_short": "pc-c220m4-r02-20", 
+    "max_cpu_quota": 10000, 
+    "max_mem_bw": 200, 
+    "module_setup": true, 
+    "omit": "__omit_place_holder__cc6fae1e100a683ebc794bd0e801cfa966cc5f7e", 
+    "playbook_dir": "/home/ivo/src/porta/ansible/tune-targets", 
+    "porta_flags": "--categories \"memory\" --cpuquota=6395 --show-bench-results --max-mem-bw=200 --max-cpu-quota=10000 --benchmark-image ivotron/microbench --test-limit 15", 
+    "test_limit": 15
+}

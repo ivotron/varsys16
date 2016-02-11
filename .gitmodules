@@ -13,3 +13,6 @@
 [submodule "vendor/pandoc-templates"]
 	path = vendor/pandoc-templates
 	url = https://github.com/ivotron/pandoc-templates
+[submodule "vendor/porta"]
+	path = vendor/porta
+	url = https://github.com/ivotron/porta

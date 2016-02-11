@@ -1,0 +1,38 @@
+[
+{
+"name": "crafty",
+"class": "cpu",
+"unit": "sec",
+"result": "52.85"
+},
+{
+"name": "stream-copy",
+"class": "memory",
+"unit": "mb/s",
+"result": "2038.10"
+},
+{
+"name": "stream-add",
+"class": "memory",
+"unit": "mb/s",
+"result": "2357.63"
+},
+{
+"name": "stream-scale",
+"class": "memory",
+"unit": "mb/s",
+"result": "2056.63"
+},
+{
+"name": "stream-triad",
+"class": "memory",
+"unit": "mb/s",
+"result": "2373.50"
+},
+{
+"name": "c-ray",
+"class": "cpu",
+"unit": "sec",
+"result": "69.82"
+}
+]

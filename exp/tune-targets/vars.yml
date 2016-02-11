@@ -1,0 +1,10 @@
+---
+benchmark_image: 'ivotron/microbench'
+cpu_period: 10000
+cpus: 3
+max_mem_bw: 200
+max_cpu_quota: 10000
+test_limit: 15
+categories: 'cpu'
+docker_flags: '--rm --cpuset-cpus={{cpus}} --cpu-period={{cpu_period}}'
+porta_flags: '--categories "{{categories}}" --show-bench-results --max-mem-bw={{max_mem_bw}} --max-cpu-quota={{max_cpu_quota}} --benchmark-image {{benchmark_image}} --test-limit {{test_limit}}'

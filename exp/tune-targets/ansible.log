@@ -1,0 +1,123 @@
+
+2016-01-26 15:51:45,111 p=10506 u=issdm |  [0;35m[DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure 
+become_method is 'sudo' (default). This feature will be removed in a future release. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.[0m
+2016-01-26 15:51:45,156 p=10506 u=issdm |  PLAY ***************************************************************************
+2016-01-26 15:51:45,179 p=10506 u=issdm |  TASK [setup] *******************************************************************
+2016-01-26 15:51:45,789 p=10506 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-26 15:51:45,858 p=10506 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-26 15:51:45,973 p=10506 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:46,050 p=10506 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:47,838 p=10506 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:50,726 p=10506 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:50,735 p=10506 u=issdm |  TASK [Assert preconditions] ****************************************************
+2016-01-26 15:51:50,812 p=10506 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-26 15:51:50,813 p=10506 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:50,815 p=10506 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-26 15:51:50,817 p=10506 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:50,820 p=10506 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:50,876 p=10506 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:50,884 p=10506 u=issdm |  TASK [delete previous results] *************************************************
+2016-01-26 15:51:51,082 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:51:51,087 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:51,095 p=10506 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-26 15:51:51,127 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:51,155 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:52,370 p=10506 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:52,377 p=10506 u=issdm |  TASK [install linux linux-headers] *********************************************
+2016-01-26 15:51:53,087 p=10506 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-26 15:51:53,096 p=10506 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:53,098 p=10506 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:53,311 p=10506 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-26 15:51:53,744 p=10506 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:55,208 p=10506 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:55,216 p=10506 u=issdm |  TASK [create test folder inside porta] *****************************************
+2016-01-26 15:51:55,419 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:55,432 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:55,434 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 15:51:55,482 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:55,526 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:51:56,717 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:56,725 p=10506 u=issdm |  TASK [send porta] **************************************************************
+2016-01-26 15:51:57,037 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:51:57,039 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 15:51:57,041 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:51:57,044 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:51:57,062 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-26 15:51:59,615 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:51:59,621 p=10506 u=issdm |  TASK [pull porta image] ********************************************************
+2016-01-26 15:52:01,823 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:52:01,824 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-26 15:52:02,589 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:52:03,505 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:52:33,288 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:52:40,594 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 15:52:40,601 p=10506 u=issdm |  TASK [pull benchmark images] ***************************************************
+2016-01-26 15:52:42,313 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:52:42,760 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-26 15:52:43,984 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:52:53,850 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:52:56,646 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 15:53:00,985 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:53:00,995 p=10506 u=issdm |  TASK [check if base.json file exists locally] **********************************
+2016-01-26 15:53:01,119 p=10506 u=issdm |  [0;32mok: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-26 15:53:01,124 p=10506 u=issdm |  TASK [generate base.json] ******************************************************
+2016-01-26 15:53:01,167 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 15:53:01,169 p=10506 u=issdm |  [0;36mskipping: [192.168.140.82][0m
+2016-01-26 15:53:01,170 p=10506 u=issdm |  [0;36mskipping: [192.168.140.86][0m
+2016-01-26 15:53:01,172 p=10506 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:53:01,173 p=10506 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:53:01,192 p=10506 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:53:01,197 p=10506 u=issdm |  TASK [get base.json metrics for host in base group] ****************************
+2016-01-26 15:53:01,242 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 15:53:01,244 p=10506 u=issdm |  [0;36mskipping: [192.168.140.82][0m
+2016-01-26 15:53:01,245 p=10506 u=issdm |  [0;36mskipping: [192.168.140.86][0m
+2016-01-26 15:53:01,246 p=10506 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:53:01,247 p=10506 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:53:01,270 p=10506 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:53:01,275 p=10506 u=issdm |  TASK [push base.json to targets] ***********************************************
+2016-01-26 15:53:01,308 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 15:53:01,560 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 15:53:01,567 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 15:53:01,569 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 15:53:01,571 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 15:53:03,705 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 15:53:03,714 p=10506 u=issdm |  TASK [tune system] *************************************************************
+2016-01-26 15:53:03,757 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 16:26:53,062 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 16:35:41,309 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 16:37:01,111 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 16:37:26,785 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 16:39:48,427 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 16:39:48,434 p=10506 u=issdm |  TASK [fetch parameter files to introspect] *************************************
+2016-01-26 16:39:48,475 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 16:39:48,559 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 16:39:48,850 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 16:39:48,908 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 16:39:49,146 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 16:39:50,884 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 16:39:50,892 p=10506 u=issdm |  TASK [fetch porta log] *********************************************************
+2016-01-26 16:39:50,931 p=10506 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-26 16:39:51,028 p=10506 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-26 16:39:51,030 p=10506 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-26 16:39:51,033 p=10506 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-26 16:39:51,037 p=10506 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-26 16:39:52,360 p=10506 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-26 16:39:52,368 p=10506 u=issdm |  TASK [create facts folder] *****************************************************
+2016-01-26 16:39:52,490 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-26 16:39:52,512 p=10506 u=issdm |  TASK [store facts about remotes] ***********************************************
+2016-01-26 16:39:53,631 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=localhost)[0m
+2016-01-26 16:39:53,634 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=piha.soe.ucsc.edu)[0m
+2016-01-26 16:39:53,636 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=192.168.140.82)[0m
+2016-01-26 16:39:53,638 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=192.168.140.86)[0m
+2016-01-26 16:39:53,640 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=nibbler.soe.ucsc.edu)[0m
+2016-01-26 16:39:53,643 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=dwill.soe.ucsc.edu)[0m
+2016-01-26 16:39:53,645 p=10506 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost] => (item=clnode056.clemson.cloudlab.us)[0m
+2016-01-26 16:39:53,648 p=10506 u=issdm |  PLAY RECAP *********************************************************************
+2016-01-26 16:39:53,648 p=10506 u=issdm |  192.168.140.82             : ok=12   changed=8    unreachable=0    failed=0   
+2016-01-26 16:39:53,648 p=10506 u=issdm |  192.168.140.86             : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-26 16:39:53,648 p=10506 u=issdm |  clnode056.clemson.cloudlab.us : ok=12   changed=8    unreachable=0    failed=0   
+2016-01-26 16:39:53,649 p=10506 u=issdm |  dwill.soe.ucsc.edu         : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-26 16:39:53,649 p=10506 u=issdm |  nibbler.soe.ucsc.edu       : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-26 16:39:53,649 p=10506 u=issdm |  piha.soe.ucsc.edu          : ok=11   changed=7    unreachable=0    failed=0   

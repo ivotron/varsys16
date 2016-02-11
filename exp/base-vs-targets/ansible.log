@@ -1,0 +1,393 @@
+
+2016-01-27 01:33:55,889 p=14788 u=issdm |  [0;35m[DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure 
+become_method is 'sudo' (default). This feature will be removed in a future release. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.[0m
+2016-01-27 01:33:55,944 p=14788 u=issdm |  PLAY ***************************************************************************
+2016-01-27 01:33:55,969 p=14788 u=issdm |  TASK [setup] *******************************************************************
+2016-01-27 01:33:56,873 p=14788 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:33:57,026 p=14788 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-27 01:33:57,082 p=14788 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:33:57,219 p=14788 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-27 01:33:58,682 p=14788 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:00,299 p=14788 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:00,306 p=14788 u=issdm |  TASK [Assert preconditions] ****************************************************
+2016-01-27 01:34:00,387 p=14788 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:00,388 p=14788 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-27 01:34:00,389 p=14788 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:00,391 p=14788 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-27 01:34:00,392 p=14788 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:00,404 p=14788 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:00,407 p=14788 u=issdm |  TASK [Get jq version] **********************************************************
+2016-01-27 01:34:00,537 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us -> localhost][0m
+2016-01-27 01:34:00,539 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82 -> localhost][0m
+2016-01-27 01:34:00,540 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-27 01:34:00,545 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86 -> localhost][0m
+2016-01-27 01:34:00,552 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu -> localhost][0m
+2016-01-27 01:34:00,555 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu -> localhost][0m
+2016-01-27 01:34:00,561 p=14788 u=issdm |  TASK [check that results for base exist when we skip it] ***********************
+2016-01-27 01:34:00,597 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:00,599 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82][0m
+2016-01-27 01:34:00,602 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:00,604 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86][0m
+2016-01-27 01:34:00,615 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:00,619 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:00,623 p=14788 u=issdm |  TASK [install linux linux-headers] *********************************************
+2016-01-27 01:34:01,251 p=14788 u=issdm |  [0;32mok: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:01,350 p=14788 u=issdm |  [0;32mok: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:01,392 p=14788 u=issdm |  [0;32mok: [192.168.140.86][0m
+2016-01-27 01:34:01,537 p=14788 u=issdm |  [0;32mok: [192.168.140.82][0m
+2016-01-27 01:34:01,981 p=14788 u=issdm |  [0;32mok: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:02,524 p=14788 u=issdm |  [0;32mok: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:02,526 p=14788 u=issdm |  TASK [delete previous results] *************************************************
+2016-01-27 01:34:02,717 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-27 01:34:02,727 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:02,734 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-27 01:34:02,746 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:02,772 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:03,830 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:03,835 p=14788 u=issdm |  TASK [create test folder] ******************************************************
+2016-01-27 01:34:04,037 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-27 01:34:04,040 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-27 01:34:04,048 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:04,056 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:04,080 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:05,151 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:05,157 p=14788 u=issdm |  TASK [delete any previous local results] ***************************************
+2016-01-27 01:34:05,281 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-27 01:34:05,286 p=14788 u=issdm |  TASK [create test folder locally] **********************************************
+2016-01-27 01:34:05,406 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-27 01:34:05,411 p=14788 u=issdm |  TASK [pull memguard image] *****************************************************
+2016-01-27 01:34:07,147 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-27 01:34:07,170 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-27 01:34:07,238 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-27 01:34:07,277 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-27 01:34:07,290 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-27 01:34:08,767 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 01:34:08,773 p=14788 u=issdm |  TASK [pull benchmark images] ***************************************************
+2016-01-27 01:34:19,924 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:19,928 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/comd)[0m
+2016-01-27 01:34:19,932 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:19,934 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:19,936 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:19,938 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:19,940 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:20,003 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:20,007 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/comd)[0m
+2016-01-27 01:34:20,009 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:20,011 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:20,013 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:20,015 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:20,017 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:20,142 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:20,146 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/comd)[0m
+2016-01-27 01:34:20,148 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:20,150 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:20,152 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:20,154 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:20,156 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:20,576 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:20,579 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/comd)[0m
+2016-01-27 01:34:20,581 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:20,583 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:20,585 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:20,587 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:20,589 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:20,657 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:20,662 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/comd)[0m
+2016-01-27 01:34:20,666 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:20,668 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:20,670 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:20,672 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:20,674 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:22,018 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/cloverleaf)[0m
+2016-01-27 01:34:22,022 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/comd)[0m
+2016-01-27 01:34:22,024 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/microbench)[0m
+2016-01-27 01:34:22,026 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/sequoia)[0m
+2016-01-27 01:34:22,028 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/stress-ng)[0m
+2016-01-27 01:34:22,030 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/sysbench)[0m
+2016-01-27 01:34:22,032 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=ivotron/unixbench)[0m
+2016-01-27 01:34:22,036 p=14788 u=issdm |  TASK [execute benchmarks without limits] ***************************************
+2016-01-27 02:51:16,684 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 02:51:16,686 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 02:51:16,689 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 02:51:16,691 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 02:51:16,693 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 02:51:16,695 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 02:51:16,697 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 02:51:16,700 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 02:51:16,702 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 02:51:16,704 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 02:51:16,706 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 02:51:16,709 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 02:51:16,711 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 02:51:16,713 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 02:51:39,780 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 02:51:39,782 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 02:51:39,785 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 02:51:39,787 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 02:51:39,789 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 02:51:39,791 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 02:51:39,794 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 02:51:39,796 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 02:51:39,798 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 02:51:39,800 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 02:51:39,802 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 02:51:39,804 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 02:51:39,807 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 02:51:39,809 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 02:53:08,136 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 02:53:08,140 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 02:53:08,144 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 02:53:08,147 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 02:53:08,149 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 02:53:08,151 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 02:53:08,153 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 02:53:08,155 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 02:53:08,157 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 02:53:08,160 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 02:53:08,162 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 02:53:08,164 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 02:53:08,166 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 02:53:08,168 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 02:54:14,275 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 02:54:14,279 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 02:54:14,281 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 02:54:14,283 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 02:54:14,286 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 02:54:14,288 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 02:54:14,290 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 02:54:14,292 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 02:54:14,294 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 02:54:14,297 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 02:54:14,299 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 02:54:14,301 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 02:54:14,303 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 02:54:14,306 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 02:54:45,324 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 02:54:45,327 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 02:54:45,329 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 02:54:45,331 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 02:54:45,333 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 02:54:45,336 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 02:54:45,338 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 02:54:45,340 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 02:54:45,342 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 02:54:45,344 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 02:54:45,347 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 02:54:45,349 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 02:54:45,351 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 02:54:45,353 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 03:03:37,067 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1])[0m
+2016-01-27 03:03:37,070 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2])[0m
+2016-01-27 03:03:37,072 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 1])[0m
+2016-01-27 03:03:37,074 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 2])[0m
+2016-01-27 03:03:37,076 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1])[0m
+2016-01-27 03:03:37,078 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2])[0m
+2016-01-27 03:03:37,080 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1])[0m
+2016-01-27 03:03:37,082 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2])[0m
+2016-01-27 03:03:37,085 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1])[0m
+2016-01-27 03:03:37,087 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2])[0m
+2016-01-27 03:03:37,089 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1])[0m
+2016-01-27 03:03:37,091 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2])[0m
+2016-01-27 03:03:37,093 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1])[0m
+2016-01-27 03:03:37,095 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2])[0m
+2016-01-27 03:03:37,099 p=14788 u=issdm |  TASK [execute benchmarks with CPU limits] **************************************
+2016-01-27 03:03:37,351 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1, u'1']) [0m
+2016-01-27 03:03:37,354 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2, u'1']) [0m
+2016-01-27 03:03:37,355 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 1, u'1']) [0m
+2016-01-27 03:03:37,357 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 2, u'1']) [0m
+2016-01-27 03:03:37,358 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1, u'1']) [0m
+2016-01-27 03:03:37,360 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2, u'1']) [0m
+2016-01-27 03:03:37,361 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1, u'1']) [0m
+2016-01-27 03:03:37,363 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2, u'1']) [0m
+2016-01-27 03:03:37,365 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1, u'1']) [0m
+2016-01-27 03:03:37,366 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2, u'1']) [0m
+2016-01-27 03:03:37,368 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1, u'1']) [0m
+2016-01-27 03:03:37,369 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2, u'1']) [0m
+2016-01-27 03:03:37,371 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1, u'1']) [0m
+2016-01-27 03:03:37,372 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2, u'1']) [0m
+2016-01-27 04:27:05,361 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1, u'5465'])[0m
+2016-01-27 04:27:05,366 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2, u'5465'])[0m
+2016-01-27 04:27:05,368 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 1, u'5465'])[0m
+2016-01-27 04:27:05,370 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 2, u'5465'])[0m
+2016-01-27 04:27:05,373 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1, u'5465'])[0m
+2016-01-27 04:27:05,375 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2, u'5465'])[0m
+2016-01-27 04:27:05,377 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1, u'5465'])[0m
+2016-01-27 04:27:05,379 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2, u'5465'])[0m
+2016-01-27 04:27:05,382 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1, u'5465'])[0m
+2016-01-27 04:27:05,384 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2, u'5465'])[0m
+2016-01-27 04:27:05,386 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1, u'5465'])[0m
+2016-01-27 04:27:05,388 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2, u'5465'])[0m
+2016-01-27 04:27:05,391 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1, u'5465'])[0m
+2016-01-27 04:27:05,393 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2, u'5465'])[0m
+2016-01-27 04:30:31,698 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1, u'7116'])[0m
+2016-01-27 04:30:31,703 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2, u'7116'])[0m
+2016-01-27 04:30:31,705 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 1, u'7116'])[0m
+2016-01-27 04:30:31,707 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 2, u'7116'])[0m
+2016-01-27 04:30:31,709 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1, u'7116'])[0m
+2016-01-27 04:30:31,712 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2, u'7116'])[0m
+2016-01-27 04:30:31,714 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1, u'7116'])[0m
+2016-01-27 04:30:31,716 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2, u'7116'])[0m
+2016-01-27 04:30:31,718 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1, u'7116'])[0m
+2016-01-27 04:30:31,721 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2, u'7116'])[0m
+2016-01-27 04:30:31,723 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1, u'7116'])[0m
+2016-01-27 04:30:31,725 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2, u'7116'])[0m
+2016-01-27 04:30:31,727 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1, u'7116'])[0m
+2016-01-27 04:30:31,730 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2, u'7116'])[0m
+2016-01-27 04:32:23,715 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 1, u'7111'])[0m
+2016-01-27 04:32:23,718 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 2, u'7111'])[0m
+2016-01-27 04:32:23,720 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/comd', 1, u'7111'])[0m
+2016-01-27 04:32:23,722 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/comd', 2, u'7111'])[0m
+2016-01-27 04:32:23,725 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/microbench', 1, u'7111'])[0m
+2016-01-27 04:32:23,727 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/microbench', 2, u'7111'])[0m
+2016-01-27 04:32:23,729 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sequoia', 1, u'7111'])[0m
+2016-01-27 04:32:23,731 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sequoia', 2, u'7111'])[0m
+2016-01-27 04:32:23,734 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/stress-ng', 1, u'7111'])[0m
+2016-01-27 04:32:23,736 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/stress-ng', 2, u'7111'])[0m
+2016-01-27 04:32:23,738 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sysbench', 1, u'7111'])[0m
+2016-01-27 04:32:23,740 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/sysbench', 2, u'7111'])[0m
+2016-01-27 04:32:23,743 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/unixbench', 1, u'7111'])[0m
+2016-01-27 04:32:23,745 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82] => (item=[u'ivotron/unixbench', 2, u'7111'])[0m
+2016-01-27 04:32:24,826 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 1, u'7009'])[0m
+2016-01-27 04:32:24,831 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 2, u'7009'])[0m
+2016-01-27 04:32:24,833 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 1, u'7009'])[0m
+2016-01-27 04:32:24,836 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 2, u'7009'])[0m
+2016-01-27 04:32:24,838 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 1, u'7009'])[0m
+2016-01-27 04:32:24,840 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 2, u'7009'])[0m
+2016-01-27 04:32:24,842 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 1, u'7009'])[0m
+2016-01-27 04:32:24,845 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 2, u'7009'])[0m
+2016-01-27 04:32:24,847 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 1, u'7009'])[0m
+2016-01-27 04:32:24,849 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 2, u'7009'])[0m
+2016-01-27 04:32:24,851 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 1, u'7009'])[0m
+2016-01-27 04:32:24,854 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 2, u'7009'])[0m
+2016-01-27 04:32:24,856 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 1, u'7009'])[0m
+2016-01-27 04:32:24,858 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 2, u'7009'])[0m
+2016-01-27 04:32:26,391 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 1, u'6352'])[0m
+2016-01-27 04:32:26,397 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 2, u'6352'])[0m
+2016-01-27 04:32:26,399 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/comd', 1, u'6352'])[0m
+2016-01-27 04:32:26,402 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/comd', 2, u'6352'])[0m
+2016-01-27 04:32:26,404 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/microbench', 1, u'6352'])[0m
+2016-01-27 04:32:26,406 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/microbench', 2, u'6352'])[0m
+2016-01-27 04:32:26,408 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sequoia', 1, u'6352'])[0m
+2016-01-27 04:32:26,411 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sequoia', 2, u'6352'])[0m
+2016-01-27 04:32:26,413 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/stress-ng', 1, u'6352'])[0m
+2016-01-27 04:32:26,415 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/stress-ng', 2, u'6352'])[0m
+2016-01-27 04:32:26,417 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sysbench', 1, u'6352'])[0m
+2016-01-27 04:32:26,419 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/sysbench', 2, u'6352'])[0m
+2016-01-27 04:32:26,422 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/unixbench', 1, u'6352'])[0m
+2016-01-27 04:32:26,424 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86] => (item=[u'ivotron/unixbench', 2, u'6352'])[0m
+2016-01-27 04:32:26,427 p=14788 u=issdm |  TASK [execute benchmarks with CPU and memory limits] ***************************
+2016-01-27 04:32:26,695 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,697 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,699 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,701 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,703 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,705 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,707 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,709 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,711 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,713 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,715 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,717 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,718 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,720 p=14788 u=issdm |  [0;36mskipping: [dwill.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,723 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,725 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,727 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,728 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,730 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,732 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,734 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,736 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,738 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,739 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,741 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,743 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,744 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,746 p=14788 u=issdm |  [0;36mskipping: [192.168.140.82] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,748 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,749 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,751 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,752 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,753 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,755 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,756 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,758 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,759 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,761 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,762 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,764 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,765 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,767 p=14788 u=issdm |  [0;36mskipping: [nibbler.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,769 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,770 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,772 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,773 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,775 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,776 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,778 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,779 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,780 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,782 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,783 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,785 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,786 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,788 p=14788 u=issdm |  [0;36mskipping: [piha.soe.ucsc.edu] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,790 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,791 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,793 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,794 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,796 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,797 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,798 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,800 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,801 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,803 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,804 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,805 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,807 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,808 p=14788 u=issdm |  [0;36mskipping: [clnode056.clemson.cloudlab.us] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,810 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 1]) [0m
+2016-01-27 04:32:26,811 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/cloverleaf', 2]) [0m
+2016-01-27 04:32:26,813 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/comd', 1]) [0m
+2016-01-27 04:32:26,814 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/comd', 2]) [0m
+2016-01-27 04:32:26,816 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/microbench', 1]) [0m
+2016-01-27 04:32:26,817 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/microbench', 2]) [0m
+2016-01-27 04:32:26,818 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/sequoia', 1]) [0m
+2016-01-27 04:32:26,820 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/sequoia', 2]) [0m
+2016-01-27 04:32:26,821 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/stress-ng', 1]) [0m
+2016-01-27 04:32:26,823 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/stress-ng', 2]) [0m
+2016-01-27 04:32:26,824 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/sysbench', 1]) [0m
+2016-01-27 04:32:26,825 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/sysbench', 2]) [0m
+2016-01-27 04:32:26,827 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/unixbench', 1]) [0m
+2016-01-27 04:32:26,828 p=14788 u=issdm |  [0;36mskipping: [192.168.140.86] => (item=[u'ivotron/unixbench', 2]) [0m
+2016-01-27 04:32:26,831 p=14788 u=issdm |  TASK [compress tests folder] ***************************************************
+2016-01-27 04:32:27,065 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-27 04:32:27,066 p=14788 u=issdm |  [1;35m [WARNING]: Consider using unarchive module rather than running tar
+[0m
+2016-01-27 04:32:27,067 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-27 04:32:27,360 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-27 04:32:27,433 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-27 04:32:27,885 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-27 04:32:28,185 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 04:32:28,194 p=14788 u=issdm |  TASK [get result tar balls] ****************************************************
+2016-01-27 04:32:28,336 p=14788 u=issdm |  [0;33mchanged: [192.168.140.86][0m
+2016-01-27 04:32:28,339 p=14788 u=issdm |  [0;33mchanged: [192.168.140.82][0m
+2016-01-27 04:32:28,342 p=14788 u=issdm |  [0;33mchanged: [dwill.soe.ucsc.edu][0m
+2016-01-27 04:32:28,344 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu][0m
+2016-01-27 04:32:28,356 p=14788 u=issdm |  [0;33mchanged: [nibbler.soe.ucsc.edu][0m
+2016-01-27 04:32:29,360 p=14788 u=issdm |  [0;33mchanged: [clnode056.clemson.cloudlab.us][0m
+2016-01-27 04:32:29,367 p=14788 u=issdm |  TASK [uncompress locally] ******************************************************
+2016-01-27 04:32:29,596 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-27 04:32:29,603 p=14788 u=issdm |  TASK [merge results] ***********************************************************
+2016-01-27 04:32:32,910 p=14788 u=issdm |  [0;33mchanged: [piha.soe.ucsc.edu -> localhost][0m
+2016-01-27 04:32:32,930 p=14788 u=issdm |  TASK [obtain normalized results] ***********************************************
+2016-01-27 04:32:33,120 p=14788 u=issdm |  [0;31mfailed: [piha.soe.ucsc.edu -> localhost] => (item=piha.soe.ucsc.edu) => {"changed": true, "cmd": ["docker", "run", "--rm", "-v", "`pwd`:/data", "--entrypoint=/data/normalize.py", "ivotron/jupyter-pd-mpl-h5", "piha.soe.ucsc.edu"], "delta": "0:00:00.039880", "end": "2016-01-27 04:32:33.090478", "failed": true, "item": "piha.soe.ucsc.edu", "rc": 1, "start": "2016-01-27 04:32:33.050598", "stderr": "Cannot connect to the Docker daemon. Is 'docker -d' running on this host?", "stdout": "", "stdout_lines": [], "warnings": []}[0m
+2016-01-27 04:32:33,122 p=14788 u=issdm |  PLAY RECAP *********************************************************************
+2016-01-27 04:32:33,123 p=14788 u=issdm |  192.168.140.82             : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-27 04:32:33,123 p=14788 u=issdm |  192.168.140.86             : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-27 04:32:33,123 p=14788 u=issdm |  clnode056.clemson.cloudlab.us : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-27 04:32:33,123 p=14788 u=issdm |  dwill.soe.ucsc.edu         : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-27 04:32:33,123 p=14788 u=issdm |  nibbler.soe.ucsc.edu       : ok=12   changed=9    unreachable=0    failed=0   
+2016-01-27 04:32:33,123 p=14788 u=issdm |  piha.soe.ucsc.edu          : ok=15   changed=12   unreachable=0    failed=1   

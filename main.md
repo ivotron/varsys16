@@ -164,7 +164,7 @@ or absolute (`period` and `quota`) values. Figure 1[^source] shows the
 effect that multiple values for `quota` have on the execution of a 
 CPU-bound process.
 
-![\[[source](http://github.com/ivotron/varsys16/figures/cgroups/)\] 
+![\[[source](http://github.com/ivotron/varsys16/exp/cgroups/)\] 
 Boxplots of runtimes of the `crafty` benchmark for multiple values of 
 cpu quota (with a fixed period of 100 microseconds). This illustrates 
 the effectiveness of the CFS scheduler for limiting CPU access for a 
@@ -174,8 +174,7 @@ is tight and it overlaps with the median.](figures/cgroups.png)
 
 [^source]: Throughout this article, we include a `source` URL for each 
 figure that links to a github page corresponding to the source code of 
-the experiment that generated this graph. **Note to reviewers:** 
-access to repo can be given upon request.
+the experiment that generated this graph.
 
 ## Limitations of Throttling
 
@@ -258,7 +257,7 @@ limitation feature of OS-level virtualization to reduce the
 variability range of performance across distinct hardware 
 platforms[^porta]. When reproducing performance of an application on a 
 target machine $B$ that originally ran on a base machine $A$, we 
-propose the following mapping methodology:
+propose the following calibration methodology:
 
  1. Execute microbenchmarks on $A$ that characterize the underlying 
     hardware platform.
@@ -302,7 +301,7 @@ one were an application originally ran[^cantspeeduphardware]. When
 this assumption does not hold, one can resort to constraining the 
 original execution (i.e. generating a $C_a$ for $A$).
 
-![\[[source](http://github.com/ivotron/varsys16/figures/fig2/)\] 
+![\[[source](http://github.com/ivotron/varsys16/exp/base-vs-targets/)\] 
 Histograms for two variability profiles. The green histogram 
 corresponds to the $T_3$/_base_ profile and is described in this 
 section. The purple histogram is described in _Section V.B_. Each data 
@@ -448,7 +447,7 @@ $[1.5-1.6]$ and another (not shown) at 14x, both corresponding to
 memory-bound benchmarks (`stress-ng-memory-malloc` and `STREAM`, 
 respectively).
 
-![\[[source](http://github.com/ivotron/varsys16/figures/fig3/)\] 
+![\[[source](http://github.com/ivotron/varsys16/exp/base-vs-targets/)\] 
 Histogram for $T_3'$/_base_ and $T_3$/_base_ profiles. The data points 
 come from the following benchmarks: `STREAM, cloverleaf-serial, 
 comd-serial, sequoia (amgmk, crystalmk, irsmk), c-ray, crafty, 
@@ -467,11 +466,9 @@ characterize a machine for CPU-intensive workloads. Also, the
 variability profile seems to be a good performance predictor, i.e. an 
 execution lies within the determined speedup/slowdown range.
 
-[^paperepo]: For a complete description of benchmarks, as well as 
+[^paperepo]: For a complete description of each benchmark, as well as 
 detailed hardware and software configuration please refer to the 
-repository of this article at <https://github.com/ivotron/varsys16>. 
-**Note to reviewers**: the repo is private but access can be granted 
-upon request.
+repository of this article at <https://github.com/ivotron/varsys16>.
 
 # Discussion
 
