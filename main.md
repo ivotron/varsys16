@@ -164,7 +164,7 @@ or absolute (`period` and `quota`) values. Figure 1[^source] shows the
 effect that multiple values for `quota` have on the execution of a 
 CPU-bound process.
 
-![\[[source](http://github.com/ivotron/varsys16/exp/cgroups/)\] 
+![\[[source](https://github.com/ivotron/varsys16/blob/submission/exp/cgroups)\] 
 Boxplots of runtimes of the `crafty` benchmark for multiple values of 
 cpu quota (with a fixed period of 100 microseconds). This illustrates 
 the effectiveness of the CFS scheduler for limiting CPU access for a 
@@ -301,7 +301,7 @@ one were an application originally ran[^cantspeeduphardware]. When
 this assumption does not hold, one can resort to constraining the 
 original execution (i.e. generating a $C_a$ for $A$).
 
-![\[[source](http://github.com/ivotron/varsys16/exp/base-vs-targets/)\] 
+![\[[source](https://github.com/ivotron/varsys16/blob/submission/exp/base-vs-targets/visualize.ipynb)\] 
 Histograms for two variability profiles. The green histogram 
 corresponds to the $T_3$/_base_ profile and is described in this 
 section. The purple histogram is described in _Section V.B_. Each data 
@@ -447,7 +447,7 @@ $[1.5-1.6]$ and another (not shown) at 14x, both corresponding to
 memory-bound benchmarks (`stress-ng-memory-malloc` and `STREAM`, 
 respectively).
 
-![\[[source](http://github.com/ivotron/varsys16/exp/base-vs-targets/)\] 
+![\[[source](https://github.com/ivotron/varsys16/blob/submission/exp/base-vs-targets/visualize.ipynb)\] 
 Histogram for $T_3'$/_base_ and $T_3$/_base_ profiles. The data points 
 come from the following benchmarks: `STREAM, cloverleaf-serial, 
 comd-serial, sequoia (amgmk, crystalmk, irsmk), c-ray, crafty, 
